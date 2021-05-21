@@ -26,10 +26,7 @@ from pygal.view import PolarThetaLogView, PolarThetaView
 
 class Gauge(Graph):
     """Gauge graph class"""
-    def _need_width(self):
-         global needle_width
-         needle_width = self.needle_width
-
+   
     def _set_view(self):
         """Assign a view to current graph"""
         if self.logarithmic:
@@ -44,6 +41,7 @@ class Gauge(Graph):
 
     def needle(self, serie):
         """Draw a needle for each value"""
+        needle_width = self.needle_width
         serie_node = self.svg.serie(serie)
         for i, theta in enumerate(serie.values):
             if theta is None:
