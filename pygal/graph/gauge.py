@@ -162,5 +162,5 @@ class Gauge(Graph):
 
     def _plot(self):
         """Plot all needles"""
-        for serie, needle_width in zip (self.series, [0.6,0.8,1.2]):
+        for serie, needle_width in zip (self.series, [0.3,0.5,0.8]):
             self.needle(serie, needle_width)
