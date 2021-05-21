@@ -33,8 +33,8 @@ class PublicApi(BaseGraph):
         if not is_list_like(values) and not isinstance(values, dict):
             values = [values]
         kwargs['title'] = title
-        kwargs['needle_width'] = needle_width
-        self.raw_series.append((values, kwargs))
+        needle_width = needle_width
+        self.raw_series.append((values,needle_width,kwargs))
         return self
 
     def __call__(self, *args, **kwargs):
