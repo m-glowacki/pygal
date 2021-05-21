@@ -28,11 +28,12 @@ from pygal.graph.base import BaseGraph
 class PublicApi(BaseGraph):
     """Chart public functions"""
 
-    def add(self, title, values, **kwargs):
+    def add(self, title, values, needle_width, **kwargs):
         """Add a serie to this graph, compat api"""
         if not is_list_like(values) and not isinstance(values, dict):
             values = [values]
         kwargs['title'] = title
+        kwargs['needle_width'] = needle_width
         self.raw_series.append((values, kwargs))
         return self
 
