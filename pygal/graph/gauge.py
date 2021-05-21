@@ -25,8 +25,8 @@ from pygal.view import PolarThetaLogView, PolarThetaView
 
 
 class Gauge(Graph):
+
     """Gauge graph class"""
-   
     def _set_view(self):
         """Assign a view to current graph"""
         if self.logarithmic:
