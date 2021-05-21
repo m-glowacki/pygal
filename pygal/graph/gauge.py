@@ -39,11 +39,8 @@ class Gauge(Graph):
             self._box
         )
 
-    def needle(self, serie):
+    def needle(self, serie, needle_width):
         """Draw a needle for each value"""
-        global needle_width
-        needle_width = 1/20 #self.needle_width
-        print(needle_width)
         serie_node = self.svg.serie(serie)
         for i, theta in enumerate(serie.values):
             if theta is None:
@@ -165,5 +162,5 @@ class Gauge(Graph):
 
     def _plot(self):
         """Plot all needles"""
-        for serie in self.series:
-            self.needle(serie)
+        for serie, needle_width in zip (self.series, [0.6,0.8,1.2]):
+            self.needle(serie, needle_width)

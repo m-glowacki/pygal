@@ -37,9 +37,6 @@ class PublicApi(BaseGraph):
         self.raw_series.append((values,needle_width,kwargs))
         return self
 
-    def print(self):
-        print(self.needle_width)
-
     def __call__(self, *args, **kwargs):
         """Call api: chart(1, 2, 3, title='T')"""
         self.raw_series.append((args, kwargs))
