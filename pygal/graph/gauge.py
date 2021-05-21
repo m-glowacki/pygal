@@ -26,8 +26,9 @@ from pygal.view import PolarThetaLogView, PolarThetaView
 
 class Gauge(Graph):
     """Gauge graph class"""
-
-    needle_width = 1 / 20
+    def _need_width(self):
+         global needle_width
+         needle_width = self.needle_width
 
     def _set_view(self):
         """Assign a view to current graph"""
@@ -77,9 +78,9 @@ class Gauge(Graph):
                     'path',
                     d='M %s L %s A %s 1 0 1 %s Z' % (
                         point(.85, theta),
-                        point(self.needle_width, theta - w),
-                        '%f %f' % (self.needle_width, self.needle_width),
-                        point(self.needle_width, theta + w),
+                        point(needle_width, theta - w),
+                        '%f %f' % (needle_width, needle_width),
+                        point(needle_width, theta + w),
                     ),
                     class_='line reactive tooltip-trigger'
                 ), metadata
